@@ -1,0 +1,749 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+:root{
+   --purple:#8e44ad;
+   --red:#c0392b;
+   --orange:#f39c12;
+   --black:#333;
+   --white:#fff;
+   --light-color:#666;
+   --light-white:#ccc;
+   --light-bg:#f5f5f5;
+   --border:.1rem solid var(--black);
+   --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+   font-family: 'Rubik', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   transition:all .2s linear;
+}
+
+*::selection{
+   background-color: var(--purple);
+   color:var(--white);
+}
+
+*::-webkit-scrollbar{
+   height: .5rem;
+   width: 1rem;
+}
+
+*::-webkit-scrollbar-track{
+   background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb{
+   background-color: var(--purple);
+}
+
+html{
+   font-size: 62.5%;
+   overflow-x: hidden;
+}
+
+body{
+   background-color: var(--light-bg);
+}
+
+section{
+   padding:3rem 2rem;
+}
+
+.title{
+   text-align: center;
+   margin-bottom: 2rem;
+   text-transform: uppercase;
+   color:var(--black);
+   font-size: 4rem;
+}
+
+.empty{
+   padding:1.5rem;
+   text-align: center;
+   border:var(--border);
+   background-color: var(--white);
+   color:var(--red);
+   font-size: 2rem;
+}
+
+.message{
+   position: sticky;
+   top:0;
+   margin:0 auto;
+   max-width: 1200px;
+   background-color: var(--light-bg);
+   padding:2rem;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 10000;
+   gap:1.5rem;
+}
+
+.message span{
+   font-size: 2rem;
+   color:var(--black);
+}
+
+.message i{
+   cursor: pointer;
+   color:var(--red);
+   font-size: 2.5rem;
+}
+
+.message i:hover{
+   transform: rotate(90deg);
+}
+
+.btn,
+.option-btn,
+.delete-btn,
+.white-btn{
+   display: inline-block;
+   margin-top: 1rem;
+   padding:1rem 3rem;
+   cursor: pointer;
+   color:var(--white);
+   font-size: 1.8rem;
+   border-radius: .5rem;
+   text-transform: capitalize;
+}
+
+.btn:hover,
+.option-btn:hover,
+.delete-btn:hover{
+   background-color: var(--black);
+}
+
+.white-btn,
+.btn{
+   background-color: var(--purple);
+}
+
+.option-btn{
+   background-color: var(--orange);
+}
+
+.delete-btn{
+   background-color: var(--red);
+}
+
+.white-btn:hover{
+   background-color: var(--white);
+   color:var(--black);
+}
+
+@keyframes fadeIn {
+   0%{
+      transform: translateY(1rem);
+      opacity: .2s;
+   }
+}
+
+.header {
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+   background-color: var(--white);
+   box-shadow: var(--box-shadow);
+}
+
+.header .flex {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1rem 2rem;
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.header .flex .logo {
+   font-size: 2.2rem;
+   color: var(--black);
+}
+
+.header .flex .logo span {
+   color: var(--purple);
+}
+
+.header .flex .navbar {
+   display: flex;
+   align-items: center;
+   margin: 0 auto;
+   gap: 1.5rem;
+}
+
+.header .flex .navbar a {
+   font-size: 1.8rem;
+   color: var(--black);
+   padding: 0 0.8rem;
+}
+
+.header .flex .navbar a:hover {
+   color: var(--purple);
+}
+
+.header .flex .icons > * {
+   margin-left: 0.8rem;
+   font-size: 2rem;
+   cursor: pointer;
+   color: var(--black);
+}
+
+.header .flex .icons > *:hover {
+   color: var(--purple);
+}
+
+.header .flex .account-box {
+   position: absolute;
+   top: 120%;
+   right: 2rem;
+   background-color: white;
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   border: var(--border);
+   padding: 1rem;
+   text-align: center;
+   width: 15rem;
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+   z-index: 1000;
+}
+
+.header .flex .account-box button {
+   width: 100%;
+   margin-bottom: 0.5rem;
+   border-radius: .5rem;
+   padding: 1rem;
+   font-size: 1.6rem;
+   color: var(--white);
+   cursor: pointer;
+   text-transform: capitalize;
+}
+
+.header .flex .account-box button:last-child {
+   margin-bottom: 0;
+}
+
+.header .flex .account-box .option-btn {
+   background-color: var(--purple);
+}
+
+.header .flex .account-box .delete-btn {
+   background-color: var(--red);
+}
+
+.header .flex .account-box .option-btn:hover,
+.header .flex .account-box .delete-btn:hover {
+   opacity: 0.8;
+}
+
+#menu-btn {
+   display: none;
+}
+
+@media (max-width: 768px) {
+   #menu-btn {
+      display: inline-block;
+   }
+
+   .header .flex .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background-color: var(--white);
+      border-top: var(--border);
+      border-bottom: var(--border);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+   }
+
+   .header .flex .navbar.active {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+   }
+
+   .header .flex .navbar a {
+      display: block;
+      margin: 2rem;
+      text-align: center;
+   }
+}
+
+@media (max-width: 450px) {
+   html{
+      font-size: 50%;
+   }
+
+   .title{
+      font-size: 3rem;
+   }
+}
+
+.dashboard .box-container{
+  display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+   gap:1.5rem;
+   max-width: 1200px;
+   margin:0 auto;
+   align-items: stretch;
+}
+
+.dashboard .box-container .box{
+  border-radius: .5rem;
+   padding: 2rem;
+  background-color: var(--white);
+   box-shadow: var(--box-shadow);
+   border:var(--border);
+   text-align: center;
+   height: 30rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+.dashboard .box-container .box h3{
+   font-size: 2.7rem;
+   color:var(--black);
+  margin-bottom: 1rem;
+}
+
+.dashboard .box-container .box p{
+   padding: 1.5rem;
+   background-color: var(--light-bg);
+   color:var(--purple);
+  font-size: 2rem;
+   border-radius: .5rem;
+   border:var(--border);
+   flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+   .dashboard .box-container .box {
+      height: 18rem;
+   }
+   
+   .dashboard .box-container .box h3 {
+      font-size: 2.4rem;
+   }
+   
+   .dashboard .box-container .box p {
+  font-size: 1.8rem;
+   }
+}
+
+/* Common Table Styles for Admin Panel */
+.messages-table,
+.users-table,
+.products-table,
+.orders-table {
+   width: 100%;
+   border-collapse: collapse;
+   margin: 1rem 0;
+   background-color: var(--white);
+   border-radius: .5rem;
+   overflow: hidden;
+   box-shadow: var(--box-shadow);
+}
+
+.messages-table th,
+.users-table th,
+.products-table th,
+.orders-table th {
+  background-color: var(--purple);
+  color: var(--white);
+   padding: 1.5rem;
+   text-align: left;
+  font-size: 1.8rem;
+}
+
+.messages-table td,
+.users-table td,
+.products-table td,
+.orders-table td {
+   padding: 1.5rem;
+   border-bottom: 1px solid var(--light-bg);
+   font-size: 1.6rem;
+}
+
+.messages-table tr:hover,
+.users-table tr:hover,
+.products-table tr:hover,
+.orders-table tr:hover {
+   background-color: var(--light-bg);
+}
+
+/* Product Image in Table */
+.product-image-cell {
+   width: 100px;
+   padding: 0.5rem;
+}
+
+.product-image-cell img {
+  width: 100%;
+   height: 100px;
+  object-fit: contain;
+   border-radius: 0.5rem;
+}
+
+/* Product Description */
+.product-description {
+   max-width: 300px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+/* Order Status */
+.order-status {
+   padding: 0.5rem 1rem;
+   border-radius: 2rem;
+   font-size: 1.4rem;
+   font-weight: 500;
+   text-align: center;
+   display: inline-block;
+}
+
+.order-status.pending {
+   background-color: #fff3cd;
+   color: #856404;
+}
+
+.order-status.processing {
+   background-color: #cce5ff;
+   color: #004085;
+}
+
+.order-status.completed {
+   background-color: #d4edda;
+   color: #155724;
+}
+
+/* Action Buttons in Tables */
+.action-buttons {
+   display: flex;
+   gap: 1rem;
+   justify-content: flex-start;
+   align-items: center;
+}
+
+.action-buttons .btn,
+.action-buttons .delete-btn,
+.action-buttons .option-btn,
+.action-buttons .edit-btn {
+   margin: 0;
+   padding: 0.8rem 1.5rem;
+   font-size: 1.4rem;
+}
+
+.action-buttons .edit-btn {
+   background-color: var(--purple);
+   color: var(--white);
+   cursor: pointer;
+   border-radius: .5rem;
+}
+
+.action-buttons .edit-btn:hover {
+   background-color: var(--black);
+}
+
+/* Table Container */
+.table-container {
+   overflow-x: auto;
+   padding: 1rem;
+}
+
+/* Table Header Section */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+   padding: 0 1rem;
+}
+
+.table-header h2 {
+   font-size: 2.4rem;
+  color: var(--black);
+}
+
+.table-header .btn {
+   margin: 0;
+}
+
+/* Empty State for Tables */
+.empty-table {
+  text-align: center;
+  padding: 2rem;
+   font-size: 1.8rem;
+  color: var(--light-color);
+   background-color: var(--white);
+   border-radius: .5rem;
+   box-shadow: var(--box-shadow);
+   margin: 1rem 0;
+}
+
+/* Loading State for Tables */
+.table-loading {
+   text-align: center;
+    padding: 2rem;
+    font-size: 1.8rem;
+    color: var(--purple);
+}
+
+/* Add New Book Button Container */
+.add-btn-container {
+    display: flex;
+   justify-content: center;
+   margin: 2rem 0;
+    padding: 1rem;
+}
+
+.add-btn-container .btn {
+   font-size: 2rem;
+   padding: 1.2rem 3rem;
+   text-transform: capitalize;
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.add-btn-container .btn:hover {
+    background-color: var(--black);
+}
+
+.admin-messages .header,
+.admin-reviews .header,
+.admin-products .header,
+.admin-users .header,
+.admin-orders .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.message-count,
+.review-count,
+.book-count,
+.user-count,
+.order-count {
+    background-color: var(--purple);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.status-badge.received {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.dispatched {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.status-badge.delivered {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-select {
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.status-select option[value="delivered"] {
+    color: #155724;
+    font-weight: bold;
+}
+
+.reviews-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.reviews-table th {
+    background: var(--purple);
+    color: var(--white);
+    padding: 1.5rem;
+    text-align: left;
+    font-size: 1.6rem;
+}
+
+.reviews-table td {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--light-bg);
+    font-size: 1.4rem;
+}
+
+.reviews-table tr:hover {
+    background-color: var(--light-bg);
+}
+
+.reviews-table .rating-stars {
+    color: #ffd700;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+}
+
+.reviews-table .comment-cell {
+    max-width: 300px;
+    white-space: pre-wrap;
+    color: var(--light-color);
+}
+
+.reviews-table .date-cell {
+    white-space: nowrap;
+    color: var(--light-color);
+}
+
+.reviews-table .action-cell {
+    text-align: center;
+}
+
+.reviews-table .delete-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.product-form {
+    padding: 2rem;
+}
+
+.product-form .form-group {
+    margin-bottom: 2rem;
+}
+
+.product-form label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-size: 1.6rem;
+    color: var(--black);
+}
+
+.product-form input[type="text"],
+.product-form input[type="number"],
+.product-form textarea {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.product-form input[type="file"] {
+    width: 100%;
+    padding: 1rem 0;
+    font-size: 1.4rem;
+}
+
+.product-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.product-form input:focus,
+.product-form textarea:focus {
+    outline: none;
+    border-color: var(--purple);
+    box-shadow: 0 0 0 2px rgba(142, 68, 173, 0.1);
+}
+
+.product-form button[type="submit"] {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.6rem;
+    color: var(--white);
+    background-color: var(--purple);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-form button[type="submit"]:hover {
+    background-color: var(--black);
+}
+
+.product-form button[type="submit"]:disabled {
+    background-color: var(--light-color);
+    cursor: not-allowed;
+}
+
+/* Prevent Chrome's autofill background color */
+.product-form input:-webkit-autofill,
+.product-form input:-webkit-autofill:hover,
+.product-form input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.modal-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.6);
+   z-index: 1000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: auto;
+}
+
+.modal-content {
+   background: #fff;
+   border-radius: 8px;
+   width: 500px;
+   max-width: 80%;
+   max-height: 90vh; /* Set max height */
+   padding: 2rem;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+   overflow-y: auto; /* Enable vertical scroll if needed */
+}
+
+.modal-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 1rem; /* Reduced to normal spacing */
+}
+
+.close-btn {
+   background: transparent;
+   border: none;
+   font-size: 1.5rem;
+   cursor: pointer;
+   color: #333;
+}
